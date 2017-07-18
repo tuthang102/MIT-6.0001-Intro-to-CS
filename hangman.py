@@ -222,7 +222,6 @@ def hangman(secret_word):
                     print('Sorry, you ran out of guesses. The word was', secret_word)
                     break
 
-
         # ALL WORDS HAVE BEEN GUESSED
         if is_word_guessed(secret_word, letters_guessed) == True:
             print('-------------')
