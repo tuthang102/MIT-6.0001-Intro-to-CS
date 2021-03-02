@@ -87,7 +87,7 @@ class Message(object):
         
         Returns: a COPY of self.valid_words
         '''
-        return self.valid_words
+        return self.valid_words.copy()
 
     def build_shift_dict(self, shift):
         '''
@@ -152,7 +152,7 @@ class PlaintextMessage(Message):
 
         '''
         Message.__init__(self, text)
-        self.get_encryption_dict = self.build_shift_dict(shift)
+        self.encryption_dict = self.build_shift_dict(shift)
         self.message_text_encrypted = self.apply_shift(shift)
         self.shift = shift
         
@@ -171,7 +171,7 @@ class PlaintextMessage(Message):
         
         Returns: a COPY of self.encryption_dict
         '''
-        return self.get_encryption_dict
+        return self.encryption_dict.copy()
 
     def get_message_text_encrypted(self):
         '''
@@ -191,7 +191,7 @@ class PlaintextMessage(Message):
 
         Returns: nothing
         '''
-        self.get_encryption_dict = self.build_shift_dict(shift)
+        self.encryption_dict = self.build_shift_dict(shift)
         self.message_text_encrypted = self.apply_shift(shift)
         self.shift = shift
 
